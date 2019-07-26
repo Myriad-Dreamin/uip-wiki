@@ -1,4 +1,4 @@
-# uip中文文档
+# uip-wiki
 
 ## UIP是什么？
 
