@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Something about UIP.">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
- 
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
 
   <script src="https://cdn.jsdelivr.net/npm/katex-copytex@1.0.2/dist/katex-copytex.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/katex-copytex@1.0.2/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
-  
+
   <style>
   /**
  * prism.js default theme for JavaScript, CSS and HTML
@@ -189,11 +189,26 @@ pre.line-numbers > code {
 
   </style>
   <style>
-  
+
   #uip, #comment_uip {
 	font-family: Garamond,sans-serif;
   }
-  
+
+  .firstnav {
+      font-size: 24px;
+  }
+
+    .naven {
+     font-family: Garamond,sans-serif;
+    }
+
+      .sidebar-nav .markdown-section {
+       font-family:  "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;;
+      }
+  .navcn {
+   font-family: 'STHeiti Light', 'STHeiti', 'SimHei', 'SimSun',sans-serif;
+  }
+
 .sidebar {
   padding-top: 0;
 }
@@ -294,8 +309,10 @@ pre.line-numbers > code {
   window.$docsify = {
     auto2top: true,
     coverpage: true,
+    onlyCover: true,
     executeScript: true,
     loadSidebar: true,
+    loadNavbar: true,
     name: 'uip-wiki',
 	<!-- https://github.com/Myriad-Dreamin/uip-wiki -->
     homepage: 'README.md',
@@ -314,7 +331,7 @@ pre.line-numbers > code {
 		}
 
 		return this.origin.code.apply(this, arguments);
-		
+
 	  }
 	}
 	}
@@ -322,6 +339,7 @@ pre.line-numbers > code {
 </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-katex@1.4.2/dist/docsify-katex.min.js"></script>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+<script src="//unpkg.com/vue/dist/vue.min.js"></script>
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
