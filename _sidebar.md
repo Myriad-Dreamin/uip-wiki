@@ -7,7 +7,7 @@
     * [Chain ID & Account](go-uip/cid-and-account.md)
     * [op-intent](go-uip/op-intent.md)
     * [transaction-intent](go-uip/transaction-intent.md)
-    * [ecc signature](go-uip/ecc-signature.md)
+    * [signer](go-uip/signer.md)
     * [merkle proof](go-uip/merkle-proof.md)
     * [bn interface](go-uip/bn-interface.md)
 * [go-nsb](go-nsb/pre.md)

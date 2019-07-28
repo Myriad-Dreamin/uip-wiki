@@ -53,7 +53,7 @@ OpType如果是`"Payment"`，那么代表这是PaymentIntent，如果是`"Contra
 "ParamValue": {
     "contract": "<string>",
     "pos": "<hexstring>",
-    "field_description": "<string>|<bytes>"
+    "field": "<string>|<bytes>"
 }
 
 ```
