@@ -4,7 +4,7 @@
     * [ves](go-ves/ves.md)
     * [ves-client](go-ves/ves-client.md)
     * [central-ves](go-ves/centered-ves.md)
-* [go-uip](go-uip/pre.md)
+* [go-uip base concept](go-uip/pre.md)
     * [op-intent](go-uip/op-intent.md)
     * [transaction-intent](go-uip/transaction-intent.md)
     * [account](go-uip/account.md)

@@ -1,0 +1,2 @@
+# Query Status on NSB
+

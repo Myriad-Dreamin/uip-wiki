@@ -1,4 +1,4 @@
-# bn interface
+#  Blockchain Networks Interface
 
 每个类型的链只需要编写一次bn interface供ves和atomizer使用。
 
@@ -87,7 +87,7 @@ type BlockChainInterface interface {
 ```
 
 #### 编写属于自己的BlockChainInterface
-下面是
+下面是Sample，它什么也不做，但是实现了BlockChainInterface的所有方法。
 
 ```go
 import types "github.com/Myriad-Dreamin/go-uip/types"

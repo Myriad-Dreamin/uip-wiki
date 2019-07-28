@@ -16,9 +16,8 @@ type Signature interface {
 }
 
 type publicKey []byte
-
 type Signer interface {
-	GetPublicKey() []byte
+	GetPublicKey() publicKey
 	Sign(signatureContent) Signature
 }
 ```

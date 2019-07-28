@@ -1,4 +1,4 @@
-# op-intent
+# Op-Intent
 
 OpIntent目前分为两种：PaymentIntent与ContractInvocationIntent。
 
