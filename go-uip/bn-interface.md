@@ -52,6 +52,27 @@ RouteRaw的功能是，将具有chainID编号的原始Transaction发送到对应
 
 为什么考虑直接传入chainID而不是chainID对应的host。因为这样灵活性更好，自定义一个RouteRaw可以像ethereum那样使用rpc，也可以传输到某一个专职的服务器上，让它代你完成这个RouteRaw的任务。
 
+使用chainID还有一个好处，那就是链ID层次化。你可以选择编写下面的一个函数将VES分配给你的路由任务交给一个子链Router。
+
+```go
+func (r Router) RouteRaw(cid uint64, raw []byte) ([]byte, error) {
+    return r.Select(maxMatch(cid, []uint64{0x3005000, 0x3005500})).RouteRaw(cid, raw)
+}
+
+// 0x3005000
+func (r PrivateNetRouter) RouteRaw(cid uint64, raw []byte) ([]byte, error) {
+    return r.ToNetCenter(cid, raw)
+}
+
+// 0x3005500
+func (r NextRouter) RouteRaw(cid uint64, raw []byte) ([]byte, error) {
+    // do something
+    return r.Hop(cid, raw)
+}
+```
+
+
+
 传入的rawTransaction必定是经过Translate处理的，所以也有可能会包含选项：
 ```json
 rawTransaction: {
