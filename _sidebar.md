@@ -23,3 +23,5 @@
 
 + [Sample](sample/base_payment/pre.md)
     + [pay between chains](sample/base_payment/pre.md)
+
++ [Statistics](statistics/pre.md)
