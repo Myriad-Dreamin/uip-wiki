@@ -21,6 +21,8 @@ central-ves拥有下列职责：
 - `<-`: `grpc_host bytes`
 - `<-`: `nsb_host bytes`
 
+ClientHello负责将自身name信息注册到central-ves上。如果需要增加额外的方法，如`登录检测`等，可以选择继承`central-ves`后修改此方法，或者注册中间件。
+
 #### `RequestComing`
 
 - `->`: `session_id bytes`
@@ -29,13 +31,19 @@ central-ves拥有下列职责：
 - `->`: `nsb_host bytes`
 - `<-`: `ok bool`
 
+`RequestComing`接受来自ves的信息，转发至客户端。
+
 #### `RequestGrpcService`
 - `->`: `name bytes`
 - `<-`: `grpc_host bytes`
 
+`RequestGrpcService`接受客户端的信息，central-ves返回任意一个可用的grpc服务的地址给带有name名称的客户端。
+
 #### `RequestNsbService`
 - `->`: `name bytes`
 - `<-`: `nsb_host bytes`
+
+`RequestNsbService`接受客户端的信息，central-ves返回任意一个可用的nsb服务的地址给带有name名称的客户端。
 
 #### `SessionList`
 - `->`: `name bytes`
@@ -43,22 +51,25 @@ central-ves拥有下列职责：
 - `<-`: `grpc_hosts repeated bytes`
 - `<-`: `default_nsb_host bytes`
 
+`SessionList`接受客户端的信息，central-ves返回一组待响应的session信息。每个记录的session，包括此session的guid，负责此session的grpc服务地址，可选的nsb服务地址。
+
 #### `TransactionList`
 - `->`: `name bytes`
 - `<-`: `transactions repeated bytes`
 - `<-`: `grpc_hosts repeated bytes`
 - `<-`: `default_nsb_host bytes`
 
+`TransactionList`接受客户端的信息，central-ves返回一组待响应的transaction信息。每个记录的transaction都是可以计算过以后可以上链的，并且额外会提供负责此transaction的grpc服务地址，可选的nsb服务地址。
+
 #### `UserRegister`
 - `->`: `account Account`
 - `->`: `user_name string`
 - `<-`: `ok bool`
 
-#### `SessionRequestForInit`
-- `->`: `session_id bytes`
-- `<-`: `opintents OpIntents`
+ClientHello负责将自身account信息注册到central-ves上。如果需要增加额外的方法，如`同一链上重复账户`等，可以选择继承`central-ves`后修改此方法，或者注册中间件。
 
 #### `AttestationReceive`
+
 - `->`: `session_id bytes`
 - `->`: `src Account`
 - `->`: `dst Account`
@@ -66,9 +77,13 @@ central-ves拥有下列职责：
 - `->`: `grpc_host bytes`
 - `<-`: `ok bool`
 
+`AttestationReceive`在客户端之间流动，由central-ves进行转发。这个信息仅仅是可选的通知，并非权威性的。未来可能会去除。
+
 #### `CloseSession`
+
 - `->`: `session_id bytes`
 - `->`: `grpc_host bytes`
 - `->`: `nsb_host bytes`
 - `<-`: `ok bool`
 
+`CloseSession`仅仅用于通知客户端，此session已停止。

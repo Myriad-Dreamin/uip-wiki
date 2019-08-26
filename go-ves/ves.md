@@ -35,9 +35,16 @@ ves正是在完成这些职责的过程中盈利。
 + `<-`: `src Account`
 + `<-`: `dst Account`
 
-#### `InformAttestation`
+#### `AttestationReceive`
+
+- `->`: `session_id bytes`
+- `<-`: `atte Attestation`
+- `<-`: `ok bool`
+
+#### `MerkleProofReceive`
 
 + `->`: `session_id bytes`
-+ `->`: `atte Attestation`
++ `->`: `chain_id uint64`
++ `->`: `merkleproof MerkleProof`
 + `<-`: `ok bool`
 
